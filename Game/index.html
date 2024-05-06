@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 height=device-height">
+    <link rel="stylesheet" href="MainMenu/css/settings-css.css">
+    <link rel="stylesheet" href="MainMenu/css/style.css">
+    <title>MysLis</title>
+</head>
+<body>
+
+<div class="menu">
+    <div class="">
+        <form class="horizontal center" action="#">
+            <div class="settings-group class-hover horizontal " id="swtch">
+                <div class="vertical center">
+                    <label for="switch1" >Pokrok v obtížnosti:</label>
+                    <label class="switch horizontal-switches forFakeSlider">
+                        <input type="checkbox" id="switch1">
+                        <span class="slider" id="slider1"></span>
+                    </label>
+                </div>
+
+                <div class="vertical center">
+                    <label for="switch2" >Nekonečná hra:</label>
+                    <label class="switch horizontal-switches forFakeSlider">
+                        <input type="checkbox" id="switch2">
+                        <span class="slider" id="slider2"></span>
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="range-slider horizontal">
+                <div class="vertical" style="margin-left: 50px">
+                    <label>Počet zviřát</label>
+                    <input class="input-range"  type="range" step="1" value="1" min="1" max="4" list="values1" style="writing-mode: vertical-lr; direction: rtl" id="ir1">
+                </div>
+                <datalist id="values1" class="divideR" style=" transform: translate(-300%,10%);">
+                    <option value="4" label="4" >4</option>
+                    <option value="3" label="3">3</option>
+                    <option value="2" label="2" style="margin-top: 10px">2</option>
+                    <option value="1" label="1" style="margin-top: 10px">1</option>
+                </datalist>
+
+                <div class="vertical" style="margin-left: 30px">
+                    <label>Počet kol</label>
+                    <input class="input-range"  type="range" step="2" value="3" min="3" max="9" list="values2" style="writing-mode: vertical-lr; direction: rtl" id="ir2">
+                </div>
+                <datalist id="values2" class="divideR" style="margin: 0; transform: translate(-200%,10%);">
+                    <option value="9" label="9">4</option>
+                    <option value="7" label="7">3</option>
+                    <option value="5" label="5" style="margin-top: 10px">2</option>
+                    <option value="3" label="3" style="margin-top: 10px">1</option>
+                </datalist>
+            </div>
+        </form>
+    </div>
+
+    <div class="game">
+        <div class="games">
+            <img src="MainMenu/pictures/icon2.2.png" name="game1" id="button1">
+        </div>
+        <div class="games" >
+            <img src="MainMenu/pictures/icon1.1.png" name="game2" id="button2">
+        </div>
+        <div class="games">
+            <img src="MainMenu/pictures/icon3.3.png" name="game3" id="button3">
+        </div>
+    </div>
+
+</div>
+
+<script src="MainMenu/js/script.js"></script>
+</body>
+
+</html>

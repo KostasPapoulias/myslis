@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\php8\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2f0lyucojv9qCR2IwknUhArVgT0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/kosta/OneDrive/Υπολογιστής/myslis/Game",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "two.files.diff.last.used.file": "C:/Users/Dan/Documents/GitHub/ZSWI/Game/miniGames/game3.js",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\soundClickGameAssets" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\miniGames" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\MainMenu\pictures\icons" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\svg" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\realy_new" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\sounds" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\animalHalfs" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png" />
+      <recent name="C:\Users\Dan\Documents\GitHub\ZSWI\Game\png\SoundClick" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ZSWI/Game/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="settings-page.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ZSWI/Game/MainMenu/html/settings-page.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.settings-page.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dedd9d67-a8fe-432d-97c5-bef72d80391a" name="Changes" comment="" />
+      <created>1712946133700</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712946133700</updated>
+      <workItem from="1712946135192" duration="795000" />
+      <workItem from="1712946952077" duration="9307000" />
+      <workItem from="1712958429733" duration="180000" />
+      <workItem from="1712962447786" duration="2620000" />
+      <workItem from="1713112199154" duration="9118000" />
+      <workItem from="1713210490792" duration="607000" />
+      <workItem from="1713284464935" duration="3538000" />
+      <workItem from="1713376696134" duration="1086000" />
+      <workItem from="1713449200877" duration="6814000" />
+      <workItem from="1713463520049" duration="242000" />
+      <workItem from="1713707205586" duration="12734000" />
+      <workItem from="1713730036773" duration="10000" />
+      <workItem from="1713733286800" duration="7020000" />
+      <workItem from="1713798872183" duration="704000" />
+      <workItem from="1713814222903" duration="6706000" />
+      <workItem from="1713886490156" duration="13432000" />
+      <workItem from="1713975728101" duration="5430000" />
+      <workItem from="1713986354227" duration="697000" />
+      <workItem from="1713987098527" duration="236000" />
+      <workItem from="1714137421155" duration="1982000" />
+      <workItem from="1714484839682" duration="7781000" />
+      <workItem from="1714500435718" duration="165000" />
+      <workItem from="1714680118795" duration="276000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

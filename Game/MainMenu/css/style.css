@@ -1,0 +1,185 @@
+/* Мерцание белым цветом */
+@keyframes sizing {
+  0% {scale: 1;}
+  50% {scale: 1.25;}
+  100% {scale: 1; }
+}
+
+/* Применяем анимации к изображению */
+.cheat{
+  animation: sizing 2s infinite; /* Применяем обе анимации */
+}
+
+@keyframes goUp {
+  0% {bottom: 0px;}
+  50% {bottom: 50px;}
+  100% { bottom: 0px;}
+}
+
+.cheats {
+  animation-name: goUp;
+  animation-duration: 2s;
+}
+
+.game {
+  margin-bottom: 20px;
+}
+/*TEST*/
+
+.container{
+  width: auto;
+  height:auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgb(182, 102, 16); */
+
+}
+.grayscale {
+  filter: grayscale(100%); /* Превращает изображение в черно-белое */
+}
+.blackout {
+  filter: brightness(0);
+}
+
+.anim_img1{
+  padding: 10px;
+  max-height: 250px;
+}
+
+.anim_img{
+  /*width: 20vw;*/
+  max-width: 250px;
+  padding: 10px;
+}
+
+.button-container{
+  /*width: inherit;*/
+  display: flex;
+  /*height: 40px;*/
+  justify-content: space-around;
+}
+
+.in_game_button{
+  cursor: pointer;
+  position: absolute;
+  background-color: lightseagreen;
+  border-radius: 10px;
+  height: 28px;
+  filter: drop-shadow(2px 3px 0.5px grey);
+}
+.end_button{
+  cursor: pointer;
+  background-color: lightseagreen;
+  border-radius: 10px;
+  height: 28px;
+  filter: drop-shadow(2px 3px 0.5px grey);
+}
+
+.guess_button{
+  right: 20px;
+  top: 20px;
+}
+
+.menu_button{
+  left: 20px;
+  top: 20px;
+}
+
+.cell{
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  max-height: auto;
+  max-width: auto;
+  cursor: pointer;
+  color: transparent;
+  line-height: auto;
+  /* height: auto;
+  width: auto;  */
+  overflow: hidden;
+  position: relative;
+}
+
+
+.select_section{
+  text-align: center;
+  grid-gap: 10px;
+  min-height: auto;
+  max-height: auto;
+  position: relative;
+  align-items: center;
+
+}
+
+.main_section{
+  min-height: auto;
+  max-height: auto;
+  text-align: center;
+  flex:1;
+  padding-top: 40px;
+  grid-gap: 10px;
+  position: relative;
+  border-radius: 200px;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../background/bgFullHD.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/*-------------------------------overlay------------------------------------*/
+
+.overlay {
+  display: none;
+  position: fixed;
+  margin-top: 15%;
+  margin-left: 35%;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 300px;
+  background-color: #ccc;
+  box-shadow: 0px 20px 20px 40px #ccc;
+  z-index: 999;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  z-index: 1000;
+  font-size: 40px;
+}
+
+.message{
+  text-align: center;
+  padding-top: 35%;
+  font-size: 40px;
+}
+
+.modal-button {
+  background-color: #8db580; /* Зеленый цвет */
+  color: #fff; /* Белый цвет текста */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+}
+
+/* Добавим стили для наведения */
+.modal-button:hover {
+  background-color: #6a925c; /* Темный зеленый цвет при наведении */
+}
