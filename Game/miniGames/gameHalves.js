@@ -1,5 +1,5 @@
 let dragNdrop = (localStorage.getItem('GAME_ID') == 'button2');
-let animals = ['krocan', 'myš', 'kohoutek', 'kráva', 'kůň', 'prasátko', 'králík', 'kačka', 'kozel', 'kočka', 'pes', 'žába'];
+let animals = ['krocan', 'myš', 'kohout', 'kráva', 'kůň', 'prase', 'králík', 'kachna', 'koza', 'kočka', 'pes', 'žába'];
 let IMG_PATH = "png/animalHalfs/";
 let MAX_ANIMALS = localStorage.getItem('MAX_ANIMALS');
 let MAX_ROUNDS = localStorage.getItem('MAX_ROUNDS');
@@ -18,14 +18,23 @@ const textPEndGameModal = document.getElementById('modalText123');
 
 let overlay = document.getElementById("myModal");
 
+/**
+ * creates contentDiv and appends it to overlay
+ */
 function createOverlay(){
     contentDiv.classList.add('message');
     overlay.appendChild(contentDiv);
 }
+
+/**
+ * displays on the screen options for reset or return to menu
+ * creates buttonContainer, menuButtonOv, restartButton
+ * handles menuButtonOv, restartButton, contentDivEnd
+ */
 function createEndGameOverlay(){
     buttonContainer.classList.add('button-container-modal');
-    menuButtonOv.textContent = 'Return to Menu';
-    restartButton.textContent = 'Play Again!';
+    menuButtonOv.textContent = 'Zpět do Menu';
+    restartButton.textContent = 'Zahrat znovu!';
 
     menuButtonOv.classList.add('modal-button');
     restartButton.classList.add('modal-button');
@@ -40,15 +49,34 @@ function createEndGameOverlay(){
     menuButtonOv.addEventListener('click', returnMenu);
     restartButton.addEventListener("click", reset)
 }
+
+/**
+ * appears the overlayEnd div
+ */
 function endGame(){
     overlayEnd.style.display = 'block';
 }
+
+/**
+ * hides the overlayEnd div
+ */
 function closeEndGame(){
     overlayEnd.style.display = 'none';
 }
+
+/**
+ * reloads the page and returns to main manu
+ */
+
 function returnMenu(){
     location.reload();
 }
+
+/**
+ * displays the message after each play on the screen
+ * creates overlay for 2000ms and then removes it
+ * @param text is the given text to be displayed on the screen
+ */
 function showOverlay(text) {
     let modalText = document.getElementById("modalText");
     let parent;
@@ -61,13 +89,27 @@ function showOverlay(text) {
     if (closeElement) {
         parent.removeChild(closeElement);
     }
+
     setTimeout(hideOverlay,2000);
     setTimeout(() => {parent.insertBefore(closeElement, modalText)}, 2000);
+
+    var speech = new SpeechSynthesisUtterance();
+    speech.text = text;
+    speech.lang = 'cs-CZ';
+    window.speechSynthesis.speak(speech);
 }
+
+/**
+ * hides the overlay
+ */
 function hideOverlay() {
     overlay.style.display = 'none';
 }
 
+/**
+ * Class that contains the name, side, image, displayed for each animal and half animal
+ * and methods setDisplayed, getDisplayed, getName, getSide, getImage
+ */
 class cellClass{
     constructor(name, side, image){
         this.name = name;
@@ -101,6 +143,7 @@ let total_attempts = 0;
 let success_attempts= 0;
 let ROUNDS_PLAYED = 0;
 let WIN_STREAK = 0;
+let LOOSE_STREAK = 0;
 let guessedAnimals = 0;
 
 let cell_selection =[]; //animals that exists in the select section
@@ -140,7 +183,10 @@ rightInnerDiv.style.marginBottom = "10px" ;
 leftInnerDiv.style.marginBottom = "10px" ;
 
 
-
+/**
+ * shuffles the given array
+ * @param array
+ */
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -149,7 +195,8 @@ function shuffleArray(array) {
 }
 
 /**
- * creates an instance of cellClass for each cell and stores it in cell_highlight or cell_selection
+ * creates an instance of cellClass for each cell with images and stores it in cell_highlight or cell_selection
+ * calls shuffleArray for both arrays
  */
 function createCells() {
     cell_highlight = []
@@ -204,7 +251,7 @@ function dragOver(event) {
     event.preventDefault();
 }
 
-added = false;
+let added = false;
 
 /**
  * when the dragged cell from select section enters the highlightCell, the highlightCell hides and the newDiv appears
@@ -248,7 +295,7 @@ newDiv.addEventListener('dragleave', (event) => {
 });
 
 /**
- * after drop newDiv is removed
+ * after drop, newDiv is removed
  * highlightCell is replaced in the main section
  * calls the control
  * @param event
@@ -272,6 +319,11 @@ function drop(event) {
 
 
 }
+
+/**
+ * finds and returns the elements that exists in the select section
+ * @returns {Element[]}
+ */
 function getCellElements() {
     const selectSection = document.getElementById('select_section');
     const cellElements = selectSection.querySelectorAll('.cell');
@@ -282,16 +334,21 @@ function activateCheatClass(el) {
     el.classList.toggle('cheat');
 }
 
+/**
+ * after click called it calls the control passing the equality of name and the highlightCell
+ * @param name of the clicked element
+ */
 function click(name) {
     control(name === highlightCell.textContent.trim());
-    // control(name === highlightCell.getAttribute("data-animal").trim());
 }
 
+/**
+ * Toggles the correct answer div
+ */
 function guessHelper(){
     let cells = getCellElements();
     cells.forEach(el => {
         if (el.textContent === cell_highlight[findHighlightIndex(cell_highlight)].getName()){
-            console.log("Guess helper found")
             setTimeout(function() {
                 activateCheatClass(el);
             }, 4000)
@@ -300,6 +357,11 @@ function guessHelper(){
     });
 }
 
+/**
+ * return the index of the array which the element is displayed
+ * @param array
+ * @returns {number}
+ */
 function findHighlightIndex(array) {
     for (let i = 0; i < array.length; i++) {
         if (!array[i].displayed) {
@@ -316,7 +378,21 @@ function findHighlightIndex(array) {
 }
 
 /**
+ * increases ROUNDS_PLAYED, total_attempts
  * decides if there will be a new highlight cell or the end of the round
+ *
+ * if true result:
+ * increases success_attempts, guessedAnimals, WIN_STREAK
+ * calls setHighlight
+ * erased text on selectedCellName
+ * handles the showOverlay accordingly
+ *
+ * else:
+ * COMPLEXITY_INC?=> resets the game initialized WIN_STREAK, handles showOverlay
+ * initializes WIN_STREAK handles showOverlay
+ *
+ * calls winStreakValidator, endGameValidator
+ *
  * @param result is the compare of the highlighted and the selected after the drop
  */
 function control(result){
@@ -324,55 +400,64 @@ function control(result){
     total_attempts++;
     let index;
     if (result) {
-        console.log("Clicked right")
         success_attempts++;
         guessedAnimals++;
-        WIN_STREAK = WIN_STREAK + 1;
+        WIN_STREAK++;
+        LOOSE_STREAK = 0;
         index = getValidIndex(cell_highlight);
-        showOverlay("Ano! Je to " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
+        showOverlay("Ano! Tohle je " + cell_highlight[findHighlightIndex(cell_highlight)].getName() + "!");
 
         setHighlight(index);
         updateSelectSection();
         selectedCellName=""; // !!!
 
     } else {
-        if (COMPLEXITY_INC && ROUNDS_PLAYED > 3) {
-            MAX_ANIMALS = parseInt(localStorage.getItem('MAX_ANIMALS'))
-            reset()
+        if (COMPLEXITY_INC) {
+            LOOSE_STREAK++;
             WIN_STREAK = 0;
-            showOverlay("Ne, zkus' ještě jednou.");
+            if (LOOSE_STREAK > 0 && (LOOSE_STREAK % 3 == 0)) {
+                if (MAX_ANIMALS  == 2) {
+                    reset()
+                } else {
+                    MAX_ANIMALS--;
+                    reset()
+                }
+            }
+            showOverlay("Ne, zkus ještě jednou.");
             return
+        } else {
+            showOverlay("Ne, zkus ještě jednou.");
         }
-        WIN_STREAK = 0;
-        showOverlay("Ne, zkus' ještě jednou.");
     }
-    if (MAX_ROUNDS > 3) {
+    if (COMPLEXITY_INC) {
         winStreakValidator();
-
     }
 
     endGameValidator()
 }
+
+/**
+ * resets the game and increases the MAX_ANIMALS whenever the animal is guessed right and the COMPLEXITY_INC is selected
+ */
 function winStreakValidator(){
-    console.log("Win streak: " + WIN_STREAK)
-    if (WIN_STREAK > 0 && (guessedAnimals > 0 && guessedAnimals % MAX_ANIMALS == 0) && COMPLEXITY_INC){
+    if (WIN_STREAK > 0 && (guessedAnimals > 0 && WIN_STREAK % 3 == 0)){
         if (MAX_ANIMALS  == 7) {
             reset()
         } else {
             MAX_ANIMALS++;
-            console.log("Increasing max animals. Currently: " + MAX_ANIMALS)
             reset()
         }
     }
 }
 
+/**
+ * terminates the game and displays message to the screen or resets it if INFINITY_GAME is selected
+ * handles textPEndGameModal with messages
+ */
 function endGameValidator(){
-    console.log("Rounds played: " + ROUNDS_PLAYED)
-    console.log("Max rounds: " + MAX_ROUNDS)
     if(MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && !INFINITY_GAME ){
-        console.log("Game is ended")
         hideOverlay();
-        textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
+        textPEndGameModal.textContent = 'Skvělá hra, šikulo!!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
         endGame();
         ROUNDS_PLAYED = 0;
         WIN_STREAK = 0;
@@ -381,23 +466,15 @@ function endGameValidator(){
             reset()
         }
         if (ROUNDS_PLAYED == MAX_ROUNDS) {
-            console.log("Game is ended")
             hideOverlay();
-            textPEndGameModal.textContent = 'Skvělá hra, drahá!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
+            textPEndGameModal.textContent = 'Skvělá hra, šikulo!\n' + "Vaše skóre je: " + success_attempts + "/" + total_attempts;
             endGame();
             ROUNDS_PLAYED = 0;
             WIN_STREAK = 0;
         }
-    } else if (MAX_ANIMALS >= MAX_ROUNDS && ROUNDS_PLAYED == MAX_ROUNDS  && INFINITY_GAME ) {
-        console.log("Game is ended")
+    } else if (INFINITY_GAME && guessedAnimals == MAX_ANIMALS) {
         reset()
-    } else if (MAX_ANIMALS < MAX_ROUNDS  && INFINITY_GAME ) {
-        if (guessedAnimals == MAX_ANIMALS) {
-            reset()
-        }
-    }
-    else if(ROUNDS_PLAYED % MAX_ROUNDS == 0){
-        reset();
+
     }
 }
 
@@ -483,30 +560,27 @@ function setFirstRound(){
         cell_selection[i].selected = false;
         cell_selection[i].element = cell;
     }
+
 }
 
 
 
 /**
  * reset is used after each round
+ * initializes guessedAnimals, main_section, select_section
+ * calls closeEndGame, shuffleArray, createCells, setFirstRound
+ * updates cell1, cell2
  */
 function reset() {
     guessedAnimals = 0;
     closeEndGame();
     main_section.innerHTML = '';
     select_section.innerHTML = '';
-    console.log("MAX_ANIMALS = " + MAX_ANIMALS)
-    console.log("local storage max animals = " + localStorage.getItem('MAX_ANIMALS'))
     shuffleArray(animals);
     cell1 = animals.slice(0, MAX_ANIMALS);
-    console.log(cell1)
     cell2 = animals.slice(0, MAX_ANIMALS);
     createCells();
     setFirstRound();
-    console.log("cell_highlight")
-    for (let i = 0; i < cell_highlight.length; i++) {
-        console.log(cell_highlight[i])
-    }
 }
 createEndGameOverlay();
 createOverlay();

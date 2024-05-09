@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+</head>
+<body>
+<p id="textToRead" lang="cs" x-ms-webview="true">ja nejsem robot.</p>
+<button id="readButton">Прочитать вслух</button>
+
+<script>
+    document.getElementById('readButton').addEventListener('click', function() {
+        var text = document.getElementById('textToRead').innerText;
+        var speech = new SpeechSynthesisUtterance();
+        speech.text = text;
+        speech.lang = 'cs-CZ'; // Устанавливаем чешский язык
+
+        // Выбираем голос по идентификатору (может отличаться в разных браузерах)
+        speech.voice = speechSynthesis.getVoices().find(function(voice) {
+            return voice.lang === 'cs-CZ';
+        });
+
+        window.speechSynthesis.speak(speech);
+    });
+</script>
+</body>
+</html>

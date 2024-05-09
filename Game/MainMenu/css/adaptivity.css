@@ -1,0 +1,51 @@
+@media (max-width: 1300px) {
+    body{
+        font-size: 20px;
+    }
+
+    #icons img {
+        width: 20%;
+    }
+    .gamepic{
+        max-width: 25%;
+        max-height: 25%;
+    }
+
+    .anim_img{
+        max-width: 180px;
+    }
+    .anim_img1{
+        max-height: 180px;
+    }
+}
+
+@media (max-width: 850px) {
+    .game{
+        margin-top: 50px;
+    }
+
+    .gamepic{
+        max-width: 25%;
+        max-height: 25%;
+    }
+
+    #icons img {
+        width: 15%;
+        margin: 0px;
+    }
+
+}
+
+@media(max-width: 600px){
+    .gamepic{
+        max-width: 25%;
+        max-height: 25%;
+    }
+    body {
+        font-size: 24px;
+    }
+
+    .game{
+        margin-top: 50px;
+    }
+}

@@ -24,7 +24,6 @@
 .game {
   margin-bottom: 20px;
 }
-/*TEST*/
 
 .container{
   width: auto;
@@ -32,12 +31,12 @@
   margin-left: auto;
   display: flex;
   flex-direction: column;
-  /* background-color: rgb(182, 102, 16); */
+}
 
-}
 .grayscale {
-  filter: grayscale(100%); /* Превращает изображение в черно-белое */
+  filter: grayscale(100%);
 }
+
 .blackout {
   filter: brightness(0);
 }
@@ -48,15 +47,12 @@
 }
 
 .anim_img{
-  /*width: 20vw;*/
-  max-width: 250px;
+  max-width: 220px;
   padding: 10px;
 }
 
 .button-container{
-  /*width: inherit;*/
   display: flex;
-  /*height: 40px;*/
   justify-content: space-around;
 }
 
@@ -89,15 +85,13 @@
 .cell{
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
   display: inline-block;
-  margin: 10px;
+  /*margin-right: 100px;*/
   text-align: center;
   max-height: auto;
   max-width: auto;
   cursor: pointer;
   color: transparent;
   line-height: auto;
-  /* height: auto;
-  width: auto;  */
   overflow: hidden;
   position: relative;
 }
@@ -164,22 +158,20 @@
 
 .message{
   text-align: center;
-  padding-top: 35%;
   font-size: 40px;
 }
 
 .modal-button {
-  background-color: #8db580; /* Зеленый цвет */
-  color: #fff; /* Белый цвет текста */
+  background-color: #8db580;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+  transition: background-color 0.3s ease;
 }
 
-/* Добавим стили для наведения */
 .modal-button:hover {
-  background-color: #6a925c; /* Темный зеленый цвет при наведении */
+  background-color: #6a925c;
 }

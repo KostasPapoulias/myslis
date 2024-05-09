@@ -1,21 +1,15 @@
-/* The container */
+/* General container for the checkbox element */
+
 .container {
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
-    /*font-size: 22px;*/
     user-select: none;
     border: 10px #007bff;
 }
 
-/*!* Hide the browser's default radio button *!*/
-/*.container input {*/
-/*    position: absolute;*/
-/*    opacity: 0;*/
-/*    cursor: pointer;*/
-/*}*/
+/* Styles for the checkbox itself (round marker) */
 
-/*!* Create a custom radio button *!*/
 .checkmark {
     position: absolute;
     top: 0;
@@ -26,12 +20,12 @@
     border-radius: 50%;
 }
 
+/* Pseudo-class for changing the checkbox style on hover */
 
 .class-hover:hover input ~ .checkmark{
     background-color: #ccc;
     cursor: pointer;
 }
-
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
@@ -76,29 +70,8 @@ body {
     background-repeat: no-repeat;
 }
 
-.settings-form {
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*align-items: center;*/
-}
-.settings-group {
-    /*margin-bottom: 10%;*/
-    /*margin-left: -10%;*/
-    /*margin-right: 20%;*/
-}
 .settings-group label {
     margin-right: 5%;
-}
-.settings-group select,
-.settings-group input[type="range"] {
-    padding: 5px;
-    border-radius: 5px;
-    margin-right: 10px;
-    height: 200px;
-    width: 300px;
-}
-.settings-group:last-child {
-    margin-bottom: 0;
 }
 
 .horizontal {
@@ -113,101 +86,32 @@ body {
 
 .center{
     align-items: center;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-button {
-    padding: 10px 20px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-button[id="submit_button"]{
     display: flex;
-    justify-content: center; /* Выравнивание по центру по горизонтали */
-    align-items: center;
+    justify-content: center;
 }
 
 #swtch{
     margin-bottom: 50px;
 }
 
-#colorScheme {
-    text-align: center;
-
-    font-family: "Comic Sans MS", sans-serif;
-    /*font-size: 35px;*/
-}
-
 div[class="container"]{
     display: flex;
-    justify-content: center; /* Выравнивание по центру по горизонтали */
+    justify-content: center;
     align-items: center;
 }
 
-/* Дополнительные стили для отображения выбранных radioButtons */
-input[type="radio"]:checked + label {
-    border: 2px solid blue; /* Добавить синюю обводку для выбранного элемента */
-    box-sizing: border-box; /* Учесть обводку в расчете размеров метки */
-}
-
-/* Стилизация для меток */
-input[type="radio"] {
-    display: none; /* Скрыть стандартный внешний вид radioButton */
-}
-
-.games{
-    max-width: 300px;
-    height: 300px;
+.game{
     display: flex;
-    justify-content: center; /* Выравнивание по центру по горизонтали */
-    align-items: center;
-    margin: 1%;
-}
-
-.game {
-    display: flex;
-    justify-content: center; /* Выравнивание по центру по горизонтали */
-    align-items: center; /* Выравнивание по центру по вертикали */
-    margin-top: 20px; /* Добавим отступ сверху */
-}
-
-img[name="game1"],
-img[name="game2"],
-img[name="game3"] {
-    max-width: 300px;
-    max-height: 300px;
-}
-
-.animalCountButton{
-    width: 150%;
-    margin-right: 50px;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 /*---------------------------------------------slide-button ----------------------------------------------*/
 
 .switch {
     position: relative;
-    display: inline-block;
     width: 100px;
     height: 150px;
-
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
 }
 
 .slider {
@@ -219,7 +123,7 @@ img[name="game3"] {
     bottom: 0;
     background-color: #ccc;
     transition: .4s;
-    border-radius: 20px; /* Удаляем скругление углов */
+    border-radius: 20px;
 }
 
 .slider:before {
@@ -231,12 +135,11 @@ img[name="game3"] {
     bottom: 7px;
     background-color: white;
     transition: .4s;
-    border-radius: 15px; /* Удаляем скругление углов */
+    border-radius: 15px;
 }
 
 .slider.checked {
     background-color: #2196F3;
-
 }
 
 .slider.checked:before {
@@ -250,20 +153,20 @@ input:focus + .slider {
 
 /* --------------------------- icons ----------------------------*/
 #icons {
-    position: fixed; /* Позиционирование фиксированное */
-    top: 0; /* Отступ от верхнего края */
-    left: 0; /* Отступ от левого края */
-    z-index: 9999; /* Перемещаем элементы вперед, чтобы они отображались поверх остального контента */
-    margin: 10px; /* Добавим небольшие отступы */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    margin: 10px;
+    text-align: left;
 }
 
 #icons img {
-    width: 120px;
+    max-width: 25%;
     margin-right: 20px;
 }
-/* --------------------------- new improvements -------------------*/
-.forFakeSlider{
-    /*margin-top: 20px;*/
+
+.fakeSlider{
     top: 15%;
 }
 .divideR{
@@ -272,30 +175,17 @@ input:focus + .slider {
 /* --------------------------- sliders ----------------------------*/
 datalist {
     display: flex;
-    flex-direction: column; /* Отображаем маркеры в столбец */
-    /*height: 200px; !* Устанавливаем высоту соответствующую ширине слайдера *!*/
-    /*margin-top: 10px;*/
+    flex-direction: column;
 }
 
 datalist option {
-    text-align: right; /* Выравниваем текст по правому краю */
+    text-align: right;
 }
 
 .horizontal{
     display: flex;
     flex-direction: row;
 }
-
-.center{
-    display: flex;
-    justify-content: center;
-}
-
-/*.vertical {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    height: 200px;*/
-/*}*/
 
 .input-range {
     height: 200px;
@@ -308,22 +198,23 @@ datalist {
 }
 
 input::-webkit-slider-thumb {
-    width: 35px; /* Увеличиваем ширину ползунка до 30px */
+    width: 35px;
     height: 20px;
     background-color: #4CAF50;
     cursor: pointer;
 }
 
 input::-webkit-slider-runnable-track {
-    height: 10px; /* Высота полосы слайдера */
-    background: #ddd; /* Цвет полосы слайдера */
-    border: none; /* Убираем границы полосы слайдера */
+    height: 10px;
+    background: #ddd;
+    border: none;
 }
 
 datalist option {
-    height: 50px; /* Высота каждого элемента списка */
-    line-height: 50px; /* Выравнивание текста по вертикали */
+    height: 50px;
+    line-height: 50px;
 }
+
 
 input::-webkit-slider-thumb {
     width: 35px;
@@ -339,8 +230,8 @@ input::-webkit-slider-runnable-track {
     border: none;
 }
 
-/*  modal "!"   */
-/* Стили для модального окна */
+/*  ------------------------------------------ modal -------------------------------------------------- */
+
 .modal {
     display: none;
     position: fixed;
@@ -375,3 +266,9 @@ input::-webkit-slider-runnable-track {
     text-decoration: none;
     cursor: pointer;
 }
+
+.gamepic{
+    max-width: 15%;
+    max-height: 15%;
+}
+
